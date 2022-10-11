@@ -7,7 +7,7 @@ class TestService extends Service[Request, Response] {
   override def apply(request: Request): Future[Response] = {
     Future {
       val response = Response(handler(request.messages))
-      println(response)
+      println(request)
       println(response.toString())
       response
     }
