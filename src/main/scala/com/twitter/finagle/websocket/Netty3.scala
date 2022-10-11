@@ -47,15 +47,6 @@ private[finagle] object Netty3 {
     case cont: ContinuationWebSocketFrame =>
       Text(cont.getText)
 
-    case bin: BinaryWebSocketFrame =>
-      Binary(new ChannelBufferBuf(bin.getBinaryData))
-
-    case ping: PingWebSocketFrame =>
-      Ping(new ChannelBufferBuf(ping.getBinaryData))
-
-    case pong: PongWebSocketFrame =>
-      Pong(new ChannelBufferBuf(pong.getBinaryData))
-
     case frame =>
       throw new IllegalStateException(s"unknown frame: $frame")
   }
@@ -63,15 +54,6 @@ private[finagle] object Netty3 {
   def toNetty(frame: Frame): WebSocketFrame = frame match {
     case Text(message) =>
       new TextWebSocketFrame(message)
-
-    case Binary(buf) =>
-      new BinaryWebSocketFrame(BufChannelBuffer(buf))
-
-    case Ping(buf) =>
-      new PingWebSocketFrame(BufChannelBuffer(buf))
-
-    case Pong(buf) =>
-      new PongWebSocketFrame(BufChannelBuffer(buf))
   }
 
   def newHandshaker(uri: URI, headers: Map[String, String]): WebSocketClientHandshaker = {
