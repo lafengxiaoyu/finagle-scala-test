@@ -5,12 +5,11 @@ import com.twitter.finagle.client.Transporter
 import com.twitter.finagle.netty3._
 import com.twitter.finagle.server.Listener
 import com.twitter.finagle.transport.TransportContext
-import java.net.{SocketAddress, URI}
-
-import org.jboss.netty.channel.{ChannelPipelineFactory, Channels}
+import org.jboss.netty.channel.Channels
 import org.jboss.netty.handler.codec.http._
 import org.jboss.netty.handler.codec.http.websocketx._
 
+import java.net.{SocketAddress, URI}
 import scala.collection.JavaConverters._
 
 private[finagle] object Netty3 {

@@ -1,16 +1,13 @@
 package com.twitter.finagle
 
-import com.twitter.finagle.netty3._
-import com.twitter.finagle.param.{Label, ProtocolLibrary, Stats}
 import com.twitter.finagle.client.{StackClient, StdStackClient, Transporter}
+import com.twitter.finagle.param.{ProtocolLibrary, Stats}
 import com.twitter.finagle.server.{Listener, StackServer, StdStackServer}
-import com.twitter.finagle.websocket.{ClientDispatcher, Netty3, Request, Response, ServerDispatcher}
 import com.twitter.finagle.transport.{Transport, TransportContext}
+import com.twitter.finagle.websocket._
 import com.twitter.util.Closable
-import java.net.SocketAddress
 
-import com.twitter.finagle.ssl.client.SslClientConfiguration
-import org.jboss.netty.channel.Channel
+import java.net.SocketAddress
 
 object Websocket extends Server[Request, Response] {
   case class Client(stack: Stack[ServiceFactory[Request, Response]] = StackClient.newStack,
@@ -33,12 +30,6 @@ object Websocket extends Server[Request, Response] {
     }): Service[Request, Response] =
       new ClientDispatcher(transport)
 
-    def withTlsWithoutValidation: Client = withTransport.tlsWithoutValidation
-
-    def withTls(hostname: String): Client = withTransport.tls(hostname)
-
-    def withTls(cfg: SslClientConfiguration): Client =
-      withTransport.tls.configured(Transport.ClientSsl(Some(cfg)))
   }
 
   val client: Client = Client()

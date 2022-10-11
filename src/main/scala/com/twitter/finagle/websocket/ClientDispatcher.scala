@@ -4,9 +4,7 @@ import com.twitter.concurrent.AsyncStream
 import com.twitter.finagle.dispatch.GenSerialClientDispatcher
 import com.twitter.finagle.stats.{NullStatsReceiver, StatsReceiver}
 import com.twitter.finagle.transport.Transport
-import com.twitter.io.Buf
-import com.twitter.util.{Closable, Future, Promise, Time}
-import org.jboss.netty.handler.codec.http.HttpRequest
+import com.twitter.util.{Future, Promise}
 import org.jboss.netty.handler.codec.http.websocketx.CloseWebSocketFrame
 
 private[finagle] class ClientDispatcher(
@@ -16,8 +14,8 @@ private[finagle] class ClientDispatcher(
     trans,
     statsReceiver) {
 
-  import Netty3.{fromNetty, newHandshaker, toNetty}
   import GenSerialClientDispatcher.wrapWriteException
+  import Netty3.{fromNetty, newHandshaker, toNetty}
 
   def this(trans: Transport[Any, Any]) =
     this(trans, NullStatsReceiver)

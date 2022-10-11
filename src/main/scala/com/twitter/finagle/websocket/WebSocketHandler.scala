@@ -86,10 +86,10 @@ private[finagle] class WebSocketClientHandler extends SimpleChannelHandler {
             else e.getFuture.setFailure(f.getCause)
         })
 
-      case frame: WebSocketFrame =>
+      case _: WebSocketFrame =>
         ctx.sendDownstream(e)
 
-      case req: HttpRequest if !ref.isEmpty =>
+      case _: HttpRequest if !ref.isEmpty =>
         ctx.sendDownstream(e)
 
       case invalid =>

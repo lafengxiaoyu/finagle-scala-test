@@ -4,11 +4,11 @@ import com.twitter.concurrent.AsyncStream
 import com.twitter.finagle.Service
 import com.twitter.finagle.stats.StatsReceiver
 import com.twitter.finagle.transport.Transport
-import com.twitter.io.Buf
 import com.twitter.util.{Closable, Future, Time}
-import java.net.{SocketAddress, URI}
 import org.jboss.netty.handler.codec.http.HttpRequest
 import org.jboss.netty.handler.codec.http.websocketx.CloseWebSocketFrame
+
+import java.net.{SocketAddress, URI}
 import scala.collection.JavaConverters._
 
 private[finagle] class ServerDispatcher(
