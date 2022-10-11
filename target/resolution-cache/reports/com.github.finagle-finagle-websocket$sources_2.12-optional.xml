@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.github.finagle"
+		module="finagle-websocket$sources_2.12"
+		revision="17.12.0"
+		conf="optional"
+		confs="compile, runtime, test, provided, optional, it, compile-internal, runtime-internal, test-internal, it-internal, plugin, sources, docs, pom, scala-tool, scoveragePlugin"
+		date="20221010225601"/>
+	<dependencies>
+	</dependencies>
+</ivy-report>

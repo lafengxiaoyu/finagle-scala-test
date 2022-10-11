@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/finagle-scala.iml" filepath="$PROJECT_DIR$/finagle-scala.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/finagle-websocket.iml" filepath="$PROJECT_DIR$/.idea/modules/finagle-websocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/finagle-websocket-build.iml" filepath="$PROJECT_DIR$/.idea/modules/finagle-websocket-build.iml" />
+    </modules>
+  </component>
+</project>
